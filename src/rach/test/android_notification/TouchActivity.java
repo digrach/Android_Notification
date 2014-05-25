@@ -1,5 +1,9 @@
 package rach.test.android_notification;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+import rach.test.android_notification.utility.DigSingleTouchListener;
 import rach.test.android_notification.utility.MenuMaker;
 import android.app.Activity;
 import android.app.Fragment;
@@ -12,19 +16,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class ResultActivity extends Activity {
+public class TouchActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_result);
+		setContentView(R.layout.activity_touch);
 
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
+			.add(R.id.container, new PlaceholderFragment()).commit();
 		}
-		
+
 	}
+
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -49,7 +55,10 @@ public class ResultActivity extends Activity {
 	/**
 	 * A placeholder fragment containing a simple view.
 	 */
-	public static class PlaceholderFragment extends Fragment {
+	public static class PlaceholderFragment extends Fragment implements PropertyChangeListener{
+
+		TextView txttouchtextx;
+		TextView txttouchtexty;
 
 		public PlaceholderFragment() {
 		}
@@ -57,15 +66,30 @@ public class ResultActivity extends Activity {
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_result,
+			View rootView = inflater.inflate(R.layout.fragment_touch,
 					container, false);
-			
+
 			setRetainInstance(true);
 			
-			TextView txtresulttext = (TextView)rootView.findViewById(R.id.txtresulttext);
-			txtresulttext.setText(getActivity().getIntent().getStringExtra("extra tag name"));
-			
+			DigSingleTouchListener singleTouchListener = new DigSingleTouchListener(rootView);
+			singleTouchListener.addChangeListener(this);
+
+			txttouchtextx = (TextView)rootView.findViewById(R.id.txttouchtextx);
+			txttouchtexty = (TextView)rootView.findViewById(R.id.txttouchtexty);
+
 			return rootView;
+		}
+
+		@Override
+		public void propertyChange(PropertyChangeEvent event) {
+			// TODO Auto-generated method stub
+			if(event.getPropertyName().equals("x")) {
+				txttouchtextx.setText("x: " + (CharSequence) event.getNewValue());
+			}
+			if(event.getPropertyName().equals("y")) {
+				txttouchtexty.setText("y: " + (CharSequence) event.getNewValue());
+			}
+
 		}
 	}
 

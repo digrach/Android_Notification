@@ -5,12 +5,17 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_result">ResultActivity</string>
-    
-    
     <string name="btn_createalert1_Text">Create alert now</string>
-     <string name="btn_playsound1_Text">Play sound now</string>
-     
-     <string name="action_test">test</string>
-     <string name="action_cloud">cloud</string>
+    <string name="btn_playsound1_Text">Play sound now</string>
+    <string name="action_test">test</string>
+    <string name="action_cloud">cloud</string>
+    <string name="action_testactivity">touch</string>
+     <string name="action_touchanddrawactivity">touch and draw</string>
+    <string name="lbl_txtresulttext">You just clicked on a notification!</string>
+    <string name="title_activity_particle">ParticleActivity</string>
+    <string name="text_txttouchtextx">Waiting...</string>
+    <string name="text_txttouchtexty">Waiting...</string>
+    <string name="title_activity_touch_draw">TouchDrawActivity</string>
+    
 
 </resources>

@@ -66,7 +66,8 @@ public class MainActivity extends Activity {
 				Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_main, container,
 					false);
-
+			setRetainInstance(true);
+			
 			context = getActivity();
 			activity = getActivity();
 
@@ -80,9 +81,11 @@ public class MainActivity extends Activity {
 					try {
 						digNotification.makeNotification(context, 
 								"This is the title", 
-								"This is the text", 
+								"This is the text",
 								Sounds.SHORT_SOUND, 
-								Class.forName("rach.test.android_notification.ResultActivity"));
+								Class.forName("rach.test.android_notification.ResultActivity"),
+								"extra tag name",
+								"extra text bla bla bla");
 					} catch (ClassNotFoundException e) {
 						e.printStackTrace();
 					}

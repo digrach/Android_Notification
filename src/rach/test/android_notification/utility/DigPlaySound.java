@@ -33,7 +33,7 @@ public class DigPlaySound {
 			e.printStackTrace();
 		}
 
-		int soundId = soundPool.load(assetDescriptor, 0);
+		//int soundId = soundPool.load(assetDescriptor, 0);
 
 		MediaPlayer mediaPlayer = new MediaPlayer();
 		try {

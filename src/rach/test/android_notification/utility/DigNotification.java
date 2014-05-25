@@ -1,7 +1,6 @@
 package rach.test.android_notification.utility;
 
 import rach.test.android_notification.R;
-import rach.test.android_notification.R.drawable;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -44,7 +43,7 @@ public class DigNotification {
 	public DigNotification() {
 	}
 
-	public void makeNotification(Context context, String title, String text, Sounds sound, Class className) {
+	public void makeNotification(Context context, String title, String text, Sounds sound, Class className, String extraTagName, String extra) {
 
 		Notification.Builder mBuilder =
 				new Notification.Builder(context)
@@ -56,6 +55,8 @@ public class DigNotification {
 		// Creates an explicit intent for an Activity in your app
 		Intent resultIntent = new Intent(context, className);
 
+		resultIntent.putExtra(extraTagName, extra);
+		
 		resultIntent.getSelector();
 
 		// The stack builder object will contain an artificial back stack for the

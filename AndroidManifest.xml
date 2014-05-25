@@ -26,6 +26,14 @@
             android:name="rach.test.android_notification.ResultActivity"
             android:label="@string/title_activity_result" >
         </activity>
+        <activity
+            android:name="rach.test.android_notification.TouchActivity"
+            android:label="@string/title_activity_particle" >
+        </activity>
+        <activity
+            android:name="rach.test.android_notification.TouchDrawActivity"
+            android:label="@string/title_activity_touch_draw" >
+        </activity>
     </application>
 
 </manifest>

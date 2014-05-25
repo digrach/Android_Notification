@@ -1,29 +1,54 @@
 package rach.test.android_notification;
 
 import rach.test.android_notification.utility.MenuMaker;
+import rach.test.android_notification.utility.MyNewSurfaceClass;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-public class ResultActivity extends Activity {
+public class TouchDrawActivity extends Activity {
+	
+	PlaceholderFragment pf;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_result);
+		setContentView(R.layout.activity_touch_draw);
 
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
+					.add(R.id.container, new PlaceholderFragment(),"canvasfrag").commit();
 		}
-		
+	}
+	
+	@Override
+	protected void onStart() {
+		super.onStart();
+		Log.d(">>>>>>>>>>>>>>>>","TouchDrawActivity.onStart");
+		pf = (PlaceholderFragment)getFragmentManager().findFragmentByTag("canvasfrag");
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+		Log.d(">>>>>>>>>>>>>>>>","TouchDrawActivity.onPause");
+		MyNewSurfaceClass c = (MyNewSurfaceClass)pf.getView();
+		c.pause();
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		Log.d(">>>>>>>>>>>>>>>>","TouchDrawActivity.onResume");
+		MyNewSurfaceClass c = (MyNewSurfaceClass)pf.getView();
+		c.resume();
 	}
 
 	@Override
@@ -57,15 +82,10 @@ public class ResultActivity extends Activity {
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_result,
-					container, false);
 			
 			setRetainInstance(true);
 			
-			TextView txtresulttext = (TextView)rootView.findViewById(R.id.txtresulttext);
-			txtresulttext.setText(getActivity().getIntent().getStringExtra("extra tag name"));
-			
-			return rootView;
+			return new MyNewSurfaceClass(getActivity());
 		}
 	}
 

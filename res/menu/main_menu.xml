@@ -9,10 +9,19 @@
         android:showAsAction="always"
         android:title="@string/action_cloud"/>
     <item
+        android:id="@+id/action_touchactivity"
+        android:title="@string/action_testactivity"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_touchanddrawactivity"
+        android:title="@string/action_touchanddrawactivity"
+        app:showAsAction="always"/>
+    <item
         android:id="@+id/action_test"
         android:orderInCategory="100"
         android:title="@string/action_test"
         app:showAsAction="always"/>
+    
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
