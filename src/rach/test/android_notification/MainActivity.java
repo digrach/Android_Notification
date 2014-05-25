@@ -1,17 +1,19 @@
 package rach.test.android_notification;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
+import rach.test.android_notification.DigNotification.Sounds;
+import android.app.Activity;
+import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.Button;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +21,8 @@ public class MainActivity extends ActionBarActivity {
 		setContentView(R.layout.activity_main);
 
 		if (savedInstanceState == null) {
-			getSupportFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
+			getFragmentManager().beginTransaction()
+			.add(R.id.container, new PlaceholderFragment()).commit();
 		}
 	}
 
@@ -49,6 +51,9 @@ public class MainActivity extends ActionBarActivity {
 	 */
 	public static class PlaceholderFragment extends Fragment {
 
+		Context context;
+		Activity activity;
+
 		public PlaceholderFragment() {
 		}
 
@@ -57,8 +62,47 @@ public class MainActivity extends ActionBarActivity {
 				Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_main, container,
 					false);
+
+			context = getActivity();
+			activity = getActivity();
+
+			Button btnCreateAlert1  = (Button)rootView.findViewById(R.id.btncreatealert1);
+			btnCreateAlert1.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+
+					DigNotification digNotification = new DigNotification();
+					try {
+						digNotification.makeNotification(context, 
+								"This is the title", 
+								"This is the text", 
+								Sounds.SHORT_SOUND, 
+								Class.forName("rach.test.android_notification.ResultActivity"));
+					} catch (ClassNotFoundException e) {
+						e.printStackTrace();
+					}
+				}
+
+			});
+
+			Button btnPlaySound1 = (Button)rootView.findViewById(R.id.btnplaysound1);
+			btnPlaySound1.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					
+					DigPlaySound digPlaySound = new DigPlaySound();
+					digPlaySound.playSound(context,activity);
+					
+
+				}
+
+			});
+
 			return rootView;
 		}
+
 	}
 
 }

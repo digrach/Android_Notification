@@ -6,19 +6,11 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="rach.test.android_notification.MainActivity$PlaceholderFragment" >
+    tools:context="rach.test.android_notification.ResultActivity$PlaceholderFragment" >
 
-    <Button
-        android:id="@+id/btncreatealert1"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btn_createalert1_Text" />
-    
-     <Button
-        android:id="@+id/btnplaysound1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btncreatealert1"
-        android:text="@string/btn_playsound1_Text" />
+        android:text="@string/hello_world" />
 
 </RelativeLayout>
