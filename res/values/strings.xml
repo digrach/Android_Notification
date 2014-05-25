@@ -9,5 +9,8 @@
     
     <string name="btn_createalert1_Text">Create alert now</string>
      <string name="btn_playsound1_Text">Play sound now</string>
+     
+     <string name="action_test">test</string>
+     <string name="action_cloud">cloud</string>
 
 </resources>

@@ -1,4 +1,4 @@
-package rach.test.android_notification;
+package rach.test.android_notification.utility;
 
 import java.io.IOException;
 

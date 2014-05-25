@@ -1,5 +1,7 @@
-package rach.test.android_notification;
+package rach.test.android_notification.utility;
 
+import rach.test.android_notification.R;
+import rach.test.android_notification.R.drawable;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -13,7 +15,7 @@ public class DigNotification {
 
 	private int notificationID;
 
-	enum Sounds {
+	public enum Sounds {
 		SHORT_SOUND, LONG_SOUND
 	}
 
