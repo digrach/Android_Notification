@@ -1208,17 +1208,20 @@ containing a value of this type.
         public static final int activity_result=0x7f030019;
         public static final int activity_touch=0x7f03001a;
         public static final int activity_touch_draw=0x7f03001b;
-        public static final int fragment_main=0x7f03001c;
-        public static final int fragment_result=0x7f03001d;
-        public static final int fragment_touch=0x7f03001e;
-        public static final int fragment_touch_draw=0x7f03001f;
-        public static final int support_simple_spinner_dropdown_item=0x7f030020;
+        public static final int activity_touch_test=0x7f03001c;
+        public static final int fragment_main=0x7f03001d;
+        public static final int fragment_result=0x7f03001e;
+        public static final int fragment_touch=0x7f03001f;
+        public static final int fragment_touch_draw=0x7f030020;
+        public static final int fragment_touch_test=0x7f030021;
+        public static final int support_simple_spinner_dropdown_item=0x7f030022;
     }
     public static final class menu {
         public static final int main_menu=0x7f0c0000;
         public static final int particle=0x7f0c0001;
         public static final int result=0x7f0c0002;
         public static final int touch_draw=0x7f0c0003;
+        public static final int touch_test=0x7f0c0004;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1276,6 +1279,7 @@ containing a value of this type.
         public static final int title_activity_particle=0x7f0a0018;
         public static final int title_activity_result=0x7f0a0010;
         public static final int title_activity_touch_draw=0x7f0a001b;
+        public static final int title_activity_touch_test=0x7f0a001c;
     }
     public static final class style {
         /** 

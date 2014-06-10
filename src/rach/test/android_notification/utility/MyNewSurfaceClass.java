@@ -57,22 +57,18 @@ public class MyNewSurfaceClass extends SurfaceView implements Runnable, Property
 			// canvas.drawRGB(255, 0, 0);
 			//            canvas.getClipBounds(dstRect);
 			//            canvas.drawBitmap(framebuffer, null, dstRect, null);        
-			drawStuff(canvas);
+			//drawStuff(canvas);
 			holder.unlockCanvasAndPost(canvas);
 		}
 	}
 
-	private void drawStuff(Canvas canvas)  {  		
-		canvas.drawColor(Color.WHITE);  
 
-		//		Random r = new Random();
-		//		int rx = r.nextInt(this.getWidth());
-		//		int ry = r.nextInt(this.getHeight());
-		//		int rad = r.nextInt(this.getWidth() / 4);
-		//
-		//		Paint p = new Paint(Color.BLACK);
-		//		p.setStyle(Style.FILL_AND_STROKE);
-		//		canvas.drawCircle(rx, ry, rad, p);
+
+	private void drawStuff()  {  
+		SurfaceHolder holder = getHolder();
+		Canvas canvas = holder.lockCanvas();
+		canvas.drawColor(Color.WHITE);  
+		
 		Paint p = new Paint(Color.BLACK);
 		p.setStyle(Style.FILL_AND_STROKE);
 		for (int j = 0; j < yc.size(); j ++) {
@@ -84,7 +80,35 @@ public class MyNewSurfaceClass extends SurfaceView implements Runnable, Property
 				ex.printStackTrace();
 			}
 		}
+
+		holder.unlockCanvasAndPost(canvas);
+
 	}
+	//	private void drawStuff(Canvas canvas)  {  
+	
+	//		
+	//		canvas.drawColor(Color.WHITE);  
+	//
+	//		//		Random r = new Random();
+	//		//		int rx = r.nextInt(this.getWidth());
+	//		//		int ry = r.nextInt(this.getHeight());
+	//		//		int rad = r.nextInt(this.getWidth() / 4);
+	//		//
+	//		//		Paint p = new Paint(Color.BLACK);
+	//		//		p.setStyle(Style.FILL_AND_STROKE);
+	//		//		canvas.drawCircle(rx, ry, rad, p);
+	//		Paint p = new Paint(Color.BLACK);
+	//		p.setStyle(Style.FILL_AND_STROKE);
+	//		for (int j = 0; j < yc.size(); j ++) {
+	//			try {
+	//				if(xc.get(j) > 0 && yc.get(j) > 0) {
+	//					canvas.drawCircle(xc.get(j),yc.get(j),10,p);
+	//				}
+	//			} catch (IndexOutOfBoundsException ex) {
+	//				ex.printStackTrace();
+	//			}
+	//		}
+	//	}
 
 
 	public void pause() {      
@@ -116,6 +140,8 @@ public class MyNewSurfaceClass extends SurfaceView implements Runnable, Property
 			float fy = (float) dy;
 			yc.add(fy);
 		}
+
+		drawStuff();
 
 		Log.d("++> Adding to list",Integer.toString(xc.size()));
 		if (xc.size() == 1000) {

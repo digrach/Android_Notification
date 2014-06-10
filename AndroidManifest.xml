@@ -34,6 +34,10 @@
             android:name="rach.test.android_notification.TouchDrawActivity"
             android:label="@string/title_activity_touch_draw" >
         </activity>
+        <activity
+            android:name="rach.test.android_notification.TouchTestActivity"
+            android:label="@string/title_activity_touch_test" >
+        </activity>
     </application>
 
 </manifest>

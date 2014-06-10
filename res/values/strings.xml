@@ -10,12 +10,12 @@
     <string name="action_test">test</string>
     <string name="action_cloud">cloud</string>
     <string name="action_testactivity">touch</string>
-     <string name="action_touchanddrawactivity">touch and draw</string>
+    <string name="action_touchanddrawactivity">touch and draw</string>
     <string name="lbl_txtresulttext">You just clicked on a notification!</string>
     <string name="title_activity_particle">ParticleActivity</string>
     <string name="text_txttouchtextx">Waiting...</string>
     <string name="text_txttouchtexty">Waiting...</string>
     <string name="title_activity_touch_draw">TouchDrawActivity</string>
-    
+    <string name="title_activity_touch_test">TouchTestActivity</string>
 
 </resources>

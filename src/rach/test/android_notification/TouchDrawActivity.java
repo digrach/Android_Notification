@@ -48,7 +48,7 @@ public class TouchDrawActivity extends Activity {
 		super.onResume();
 		Log.d(">>>>>>>>>>>>>>>>","TouchDrawActivity.onResume");
 		MyNewSurfaceClass c = (MyNewSurfaceClass)pf.getView();
-		c.resume();
+		//c.resume();
 	}
 
 	@Override
